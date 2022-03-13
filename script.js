@@ -105,10 +105,22 @@ function funn(fun) {
   if(name == "var+"){
     in1 = var_check1(fun);
     in2 = var_check2(fun);
-    parseInt(in2);
-    parseInt(var_val[var_names.indexOf(in1)]);
-    var_val[var_names.indexOf(in1)] += in2;
-    console.log(var_val);
+    var_val[var_names.indexOf(in1)] = parseInt(var_val[var_names.indexOf(in1)]) + parseInt(in2);
+  }
+  if(name == "var-"){
+    in1 = var_check1(fun);
+    in2 = var_check2(fun);
+    var_val[var_names.indexOf(in1)] = parseInt(var_val[var_names.indexOf(in1)]) - parseInt(in2);
+  }
+  if(name == "var*"){
+    in1 = var_check1(fun);
+    in2 = var_check2(fun);
+    var_val[var_names.indexOf(in1)] = parseInt(var_val[var_names.indexOf(in1)]) * parseInt(in2);
+  }
+  if(name == "var/"){
+    in1 = var_check1(fun);
+    in2 = var_check2(fun);
+    var_val[var_names.indexOf(in1)] = parseInt(var_val[var_names.indexOf(in1)]) / parseInt(in2);
   }
     
 }
