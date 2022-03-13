@@ -1,6 +1,6 @@
 var can = document.getElementById("mainC").getContext("2d");
 var list = document.getElementById("list");
-const not_draw = ["rep","var","addVar"];
+const not_draw = ["rep","var","var+","var-","var*","var/"];
 const var_names = [];
 const var_val =[];
 var number = 1;
@@ -87,15 +87,28 @@ function funn(fun) {
   if(name == "var"){
     let var_name = fun.split(">")[1].split(",")[0];
     let val = fun.split(">")[1].split(",")[1];
-    
+    if(val.includes("var")) {
+     val =  var_val[var_names.indexOf(val.split(":")[1])];
+      }
+
     if(var_names.includes(var_name)){
+      parseInt(val);
       var_val[var_names.indexOf(var_name)] = val;
     }
     else{
       var_names.push(var_name);
+      parseInt(val);
       var_val.push(val);
       //console.log(var_names+":"+var_val);
     }
+  }
+  if(name == "var+"){
+    in1 = var_check1(fun);
+    in2 = var_check2(fun);
+    parseInt(in2);
+    parseInt(var_val[var_names.indexOf(in1)]);
+    var_val[var_names.indexOf(in1)] += in2;
+    console.log(var_val);
   }
     
 }
