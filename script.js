@@ -67,6 +67,14 @@ function draw(fun) {
     let in4 = var_check4(fun);
     can.rect(in1, in2, in3, in4);
   }
+   if (type == "text"){
+    let in1 = var_check1(fun);
+    let in2 = var_check2(fun);
+    let in3 = var_check3(fun);
+    let in4 = var_check4(fun);
+    can.font = in4+"px Verdana";
+    can.fillText(in1, in2, in3);
+  }
   can.stroke();
 }
 
@@ -79,6 +87,7 @@ function funn(fun) {
   if(name == "var"){
     let var_name = fun.split(">")[1].split(",")[0];
     let val = fun.split(">")[1].split(",")[1];
+    
     if(var_names.includes(var_name)){
       var_val[var_names.indexOf(var_name)] = val;
     }
@@ -91,6 +100,9 @@ function funn(fun) {
     
 }
 
+
+
+///////////////////////////
 function var_check1(fun) {
   if(fun.split(">")[1].split(",")[0].includes("var")) {
     
