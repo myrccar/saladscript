@@ -1,7 +1,8 @@
 var can = document.getElementById("mainC").getContext("2d");
 var list = document.getElementById("list");
 const not_draw = ["rep","var","addVar"];
-const vars = [];
+const var_names = [];
+const var_val =[];
 var number = 1;
 function add() {
   let li = document.createElement('li');
@@ -44,15 +45,27 @@ function draw(fun) {
   
   var type = fun.split(">")[0];
   if (type == "move"){
-    let in1 = fun.split(">")[1].split(",")[0];
-    let in2 = fun.split(">")[1].split(",")[1];
+    let in1 = var_check1(fun);
+    let in2 = var_check2(fun);
     can.moveTo(in1,in2);
-    
   }
   if (type == "line"){
-    let in1 = fun.split(">")[1].split(",")[0];
-    let in2 = fun.split(">")[1].split(",")[1];
+    let in1 = var_check1(fun);
+    let in2 = var_check2(fun);
     can.lineTo(in1,in2);
+  }
+  if (type == "cir"){
+    let in1 = var_check1(fun);
+    let in2 = var_check2(fun);
+    let in3 = var_check3(fun);
+    can.arc(in1, in2, in3, 0, 2 * Math.PI);
+  }
+  if (type == "rect"){
+    let in1 = var_check1(fun);
+    let in2 = var_check2(fun);
+    let in3 = var_check3(fun);
+    let in4 = var_check4(fun);
+    can.rect(in1, in2, in3, in4);
   }
   can.stroke();
 }
@@ -61,8 +74,53 @@ function funn(fun) {
   var name = fun.split(">")[0];
   if(name == "rep"){
     //repet loops later
-  
+    
     }
-  
-  
+  if(name == "var"){
+    let var_name = fun.split(">")[1].split(",")[0];
+    let val = fun.split(">")[1].split(",")[1];
+    if(var_names.includes(var_name)){
+      var_val[var_names.indexOf(var_name)] = val;
+    }
+    else{
+      var_names.push(var_name);
+      var_val.push(val);
+      //console.log(var_names+":"+var_val);
+    }
+  }
+    
+}
+
+function var_check1(fun) {
+  if(fun.split(">")[1].split(",")[0].includes("var")) {
+    
+        return  var_val[var_names.indexOf(fun.split(">")[1].split(",")[0].split(":")[1])];
+      }
+  else{
+    return fun.split(">")[1].split(",")[0];
+  }
+}
+function var_check2(fun) {
+  if(fun.split(">")[1].split(",")[1].includes("var")) {
+        return  var_val[var_names.indexOf(fun.split(">")[1].split(",")[1].split(":")[1])];
+      }
+  else{
+    return fun.split(">")[1].split(",")[1];
+  }
+}
+function var_check3(fun) {
+  if(fun.split(">")[1].split(",")[2].includes("var")) {
+        return  var_val[var_names.indexOf(fun.split(">")[1].split(",")[2].split(":")[1])];
+      }
+  else{
+    return fun.split(">")[1].split(",")[2];
+  }
+}
+function var_check4(fun) {
+  if(fun.split(">")[1].split(",")[3].includes("var")) {
+        return  var_val[var_names.indexOf(fun.split(">")[1].split(",")[3].split(":")[1])];
+      }
+  else{
+    return fun.split(">")[1].split(",")[3];
+  }
 }
