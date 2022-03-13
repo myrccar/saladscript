@@ -1,6 +1,6 @@
 var can = document.getElementById("mainC").getContext("2d");
 var list = document.getElementById("list");
-const not_draw = ["rep","var","var+","var-","var*","var/"];
+const not_draw = ["rep",'stop',"var","var+","var-","var*","var/"];
 const var_names = [];
 const var_val =[];
 var number = 1;
@@ -24,7 +24,7 @@ function run() {
   can.clearRect(0, 0, 200, 200);
   
   var list = document.getElementById("list");
-  let items = list.getElementsByTagName("li");
+  var items = list.getElementsByTagName("li");
   for (var i = 0; i < items.length; ++i) {
     let i2 = i+1;
     
@@ -82,7 +82,7 @@ function funn(fun) {
   var name = fun.split(">")[0];
   if(name == "rep"){
     //repet loops later
-    
+    //help me
     }
   if(name == "var"){
     let var_name = fun.split(">")[1].split(",")[0];
