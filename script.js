@@ -1,9 +1,11 @@
 var can = document.getElementById("mainC").getContext("2d");
 var list = document.getElementById("list");
 const not_draw = ["rep",'stop',"var","var+","var-","var*","var/"];
+
+var inp = 1;
 document.getElementById("inp1").focus();
-const var_names = [];
-const var_val =[];
+var var_names = [];
+var var_val =[];
 var number = 1;
 function add() {
   let li = document.createElement('li');
@@ -21,6 +23,8 @@ function add() {
 
 
 function run() {
+  var_names = [];
+  var_val = [];
   var can = document.getElementById("mainC").getContext("2d");
   can.beginPath();
   can.clearRect(0, 0, 200, 200);
@@ -199,7 +203,9 @@ document.onkeydown = function(e){
     add();
   }
   
+
 }
+    
 
 function doc_keyUp(e) {
     if (e.ctrlKey && e.key === 'Shift') {       
