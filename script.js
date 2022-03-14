@@ -1,6 +1,7 @@
 var can = document.getElementById("mainC").getContext("2d");
 var list = document.getElementById("list");
 const not_draw = ["rep",'stop',"var","var+","var-","var*","var/"];
+document.getElementById("inp1").focus();
 const var_names = [];
 const var_val =[];
 var number = 1;
@@ -15,6 +16,7 @@ function add() {
   inp.autocomplete = "off";
   li.appendChild(inp);
   list.appendChild(li);
+  inp.focus();
 }
 
 
@@ -190,3 +192,18 @@ function evel(fun) {
       else{funn(fun);}
     }
 }
+
+//hotkeys
+document.onkeydown = function(e){ 
+  if(e.key == "Enter"){
+    add();
+  }
+  
+}
+
+function doc_keyUp(e) {
+    if (e.ctrlKey && e.key === 'Shift') {       
+        run();
+    }
+}
+document.addEventListener('keyup', doc_keyUp, false);
