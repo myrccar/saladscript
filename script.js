@@ -26,7 +26,7 @@ function run() {
   var list = document.getElementById("list");
   var items = list.getElementsByTagName("li");
   for (var i = 0; i < items.length; ++i) {
-    let i2 = i+1;
+    var i2 = i+1;
     
    var fun = document.getElementById("inp"+i2).value;
     //console.log(fun);
@@ -34,7 +34,7 @@ function run() {
     if(fun !== ""){  
       let name = fun.split(">")[0];
       if(!not_draw.includes(name)){draw(fun);}
-      else{funn(fun);}
+      else{funn(fun,i2);}
     }
 }
 }
@@ -78,11 +78,31 @@ function draw(fun) {
   can.stroke();
 }
 
-function funn(fun) {
+function funn(fun,i2) {
   var name = fun.split(">")[0];
   if(name == "rep"){
-    //repet loops later
-    //help me
+    let times = fun.split(">")[1];
+    let end = -1;
+    let tick = i2 +1;
+    while(end == -1){
+      
+      if(document.getElementById("inp"+tick).value == "stop"){
+        end = tick - 1;
+      }
+      else{
+        tick += 1;
+      }
+    }
+    let dis = i2 -1 + end; 
+    for (let i = 0; i < times; i++) {
+      tick = i2 +1;
+      //just go with it dis -2
+      for (let x = 0; x < dis - 2; x++) {
+        evel(document.getElementById("inp"+tick).value);
+        tick++;
+      }
+    }
+    
     }
   if(name == "var"){
     let var_name = fun.split(">")[1].split(",")[0];
@@ -160,4 +180,13 @@ function var_check4(fun) {
   else{
     return fun.split(">")[1].split(",")[3];
   }
+}
+
+function evel(fun) {
+    
+    if(fun !== ""){  
+      let name = fun.split(">")[0];
+      if(!not_draw.includes(name)){draw(fun);}
+      else{funn(fun);}
+    }
 }
