@@ -1,6 +1,8 @@
 var can = document.getElementById("mainC").getContext("2d");
 var list = document.getElementById("list");
 const not_draw = ["rep",'stop',"var","var+","var-","var*","var/"];
+var move_x  = 100;
+var move_y = 100;
 
 var inp = 1;
 document.getElementById("inp1").focus();
@@ -54,17 +56,23 @@ function draw(fun) {
     let in1 = var_check1(fun);
     let in2 = var_check2(fun);
     can.moveTo(in1,in2);
+    move_x = parseInt(in1);
+    move_y = parseInt(in2);
   }
   if (type == "line"){
     let in1 = var_check1(fun);
     let in2 = var_check2(fun);
     can.lineTo(in1,in2);
+    can.stroke();
   }
   if (type == "cir"){
     let in1 = var_check1(fun);
     let in2 = var_check2(fun);
     let in3 = var_check3(fun);
+    can.moveTo(parseInt(in1)+parseInt(in3),in2);
     can.arc(in1, in2, in3, 0, 2 * Math.PI);
+    can.stroke();
+    can.moveTo(move_x,move_y);
   }
   if (type == "rect"){
     let in1 = var_check1(fun);
@@ -72,6 +80,7 @@ function draw(fun) {
     let in3 = var_check3(fun);
     let in4 = var_check4(fun);
     can.rect(in1, in2, in3, in4);
+    can.stroke();
   }
    if (type == "text"){
     let in1 = var_check1(fun);
@@ -80,8 +89,8 @@ function draw(fun) {
     let in4 = var_check4(fun);
     can.font = in4+"px Verdana";
     can.fillText(in1, in2, in3);
+    can.stroke();
   }
-  can.stroke();
 }
 
 function funn(fun,i2) {
@@ -213,3 +222,54 @@ function doc_keyUp(e) {
     }
 }
 document.addEventListener('keyup', doc_keyUp, false);
+
+
+//save
+function save() {
+  var save = "";
+  var list = document.getElementById("list");
+  var items = list.getElementsByTagName("li");
+  for (var i = 0; i < items.length; ++i) {
+    var i2 = i+1; 
+   let val = document.getElementById("inp"+i2).value;
+   save += val+";";
+}
+  var blob = new Blob([save], { type: "text/plain;charset=utf-8" }); 
+ const url = URL.createObjectURL(blob);
+  let btn = document.getElementById("btn");
+  btn.href = url;
+
+}
+//load
+function load(input) {
+  var file = input.files[0];
+    var reader = new FileReader();
+    reader.readAsText(file);
+    reader.onload = function() {
+        processContents(reader.result);
+    reader.close;
+    }
+}
+
+function processContents(contents){
+    //load script
+    if(window.confirm("this will delet your cerent script! do you wish to contune?")){
+      number = 0;
+      document.getElementById("list").innerHTML = "";
+      save_file = contents.split(";");
+      for (let i = 0; i < save_file.length -1; i++) {
+         let li = document.createElement('li');
+          let inp = document.createElement('input');
+          number +=1;
+          inp.id = "inp"+number;
+          inp.placeholder = "enter line of code";
+          inp.class = "inp";
+          inp.type = "text";
+          inp.autocomplete = "off";
+          inp.value = save_file[i];
+          li.appendChild(inp);
+          list.appendChild(li);
+          inp.focus();
+      }
+    }
+}

@@ -6,8 +6,12 @@
     <title>saladScript</title>
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
   </head>
   <body>
+    <div class="header"></div>
     <canvas id="mainC" width="200" height="200" style="border:1px solid #000000;">sorry your browser is not compatible
 </canvas>
     <button onclick="run()" class="run_btn">run</button>
@@ -18,6 +22,9 @@
       
     <button onclick="add()" style="float: right;">add line</button>
     </div>
+    <a download="mySaladScript.salad" href="" id="btn" onclick="save()"><button>save</button></a>
+    <label for="load">load</label>
+    <input style="display: none;" id="load" type="file"  accept="text/salad" onchange="load(this)">
     <script src="script.js"></script>
     <noscript>sorry your browser is not compatible</noscript>
   </body>
