@@ -1,6 +1,10 @@
 html, body{
   font-family: 'Ubuntu', sans-serif;
   margin: 0px;
+  background-color: #EDF6F9;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
 }
 
 div.header{
@@ -8,17 +12,94 @@ div.header{
   width: 100vw;
   height: 10vw;
   background-color: #006D77;
+
+}
+
+img.logo{
+  width: 10vw;
+  float: left;
+}
+
+div.header > h1{
+  float: left;
+  font-size: 4vw;
+}
+
+a.save > button{
+  float: right;
+  height: 10vw;
+  background-color: #006D77;
+  color: black;
+  border: none;
+  font-size: 2.3vw;
+  width: 9vw;
+  cursor: pointer;
+}
+a.save > button:hover{
+  background-color: #83C5BE;
+  color: black;
+}
+
+button{
+  font-family: 'Ubuntu', sans-serif; 
+}
+
+.nav{
+  float: right;
+  height: 10vw;
+  background-color: #006D77;
+  color: black;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.3vw;
+  width: 9vw;
+  cursor: pointer;
+}
+.nav:hover{
+  background-color: #83C5BE;
+}
+
+/*main part*/
+.gutter{
+  height: 80%;
+  width: 4vw;
+  background-color: red;
+  cursor: mouse;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #mainC{
-  float: left;
+  
 }
 button.run_btn{
-  float: left;
+  
 }
 ol.list{
-  float: right;
   
+}
+
+div.content{
+    flex: 1 1 auto;
+}
+
+div.side_a{
+  float: right;
+  background-color: #5e8d88;
+  height: 100%;
+  width: 45%;
+}
+div.side_b{
+  float: left;
+  background-color: #5e8d88;
+  height: 100%;
+  width: 55%;
+  overflow-y: scroll;
 }
 
 

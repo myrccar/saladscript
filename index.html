@@ -11,20 +11,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="header"></div>
-    <canvas id="mainC" width="200" height="200" style="border:1px solid #000000;">sorry your browser is not compatible
-</canvas>
-    <button onclick="run()" class="run_btn">run</button>
-    <div>
+    <div class="header">
+      <img src="img/saildscript_logo.png" class="logo" alt="saladScrit logo">
+      <h1>salad script</h1>
+      <a href="#"><button class="nav" >help</button></a>
+      <label for="load"><div class="nav">load</div></label>
+    <input style="display: none;" id="load" type="file"  accept="text/salad, text/plain" onchange="load(this)">
+      <a class="save nav" download="mySaladScript.txt" href="" id="btn" onclick="save()"><button>save</button></a>
+    
+    </div>
+   <!-- <div class="gutter" id="dragMe"></div> -->
+    <div class="content">
+    <div class="side_b">
     <ol id="list" class="list">
       <li><input autocomplete="off" id="inp1" type="text" placeholder="enter line of code" class="inp"></input></li>
     </ol>
       
     <button onclick="add()" style="float: right;">add line</button>
     </div>
-    <a download="mySaladScript.salad" href="" id="btn" onclick="save()"><button>save</button></a>
-    <label for="load">load</label>
-    <input style="display: none;" id="load" type="file"  accept="text/salad" onchange="load(this)">
+    <div class="side_a">
+    <canvas id="mainC" width="200" height="200" style="border:1px solid #000000;">sorry your browser is not compatible
+</canvas>
+    <button onclick="run()" class="run_btn">run</button>
+    </div>
+    </div>
     <script src="script.js"></script>
     <noscript>sorry your browser is not compatible</noscript>
   </body>
