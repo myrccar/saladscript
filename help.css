@@ -1,0 +1,25 @@
+html,body{
+  margin:0px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+div.header{
+  width: 100vw;
+  height: 12vw;
+  background-color: #006D77;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+div.header > img{
+  width: 13vw;
+  float: left;
+  padding: 0px;
+  margin: 0px;
+}
+
+div.header > h1{
+  float: left;
+  margin: 0px;
+  padding-top: 3vw;
+  font-size: 5vw;
+}

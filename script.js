@@ -1,6 +1,6 @@
 var can = document.getElementById("mainC").getContext("2d");
 var list = document.getElementById("list");
-const not_draw = ["rep",'stop',"var","var+","var-","var*","var/"];
+const not_draw = ["rep",'stop',"var","var+","var-","var*","var/","if"];
 var move_x  = 100;
 var move_y = 100;
 
@@ -116,9 +116,57 @@ function funn(fun,i2) {
         evel(document.getElementById("inp"+tick).value);
         tick++;
       }
+    }}
+   if(name == "if"){
+     console.log("if");
+    in1 = var_check1(fun);
+    in2 = var_check2(fun);
+    in3 = var_check3(fun);
+    let end = -1;
+    let tick = i2 +1;
+    while(end == -1){
+      
+      if(document.getElementById("inp"+tick).value == "end"){
+        end = tick - 1;
+      }
+      else{
+        tick += 1;
+      }
     }
+    let dis = i2 -1 + end; 
+     //
+      if(in2 == "=="){
+        console.log("==");
+        if(String(in1) == String(in3)){
+          console.log("//");
+          for (let x = 0; x < dis - 2; x++) {
+        evel(document.getElementById("inp"+tick).value);
+        console.log(document.getElementById("inp"+tick).value);
+        tick++;
+            
+      }
+        }
+      }
+        //
+      else if(in2 == ">"){
+        if(parseInt(in1)>praseInt(in3)){
+          for (let x = 0; x < dis - 2; x++) {
+        evel(document.getElementById("inp"+tick).value);
+        tick++;
+      }
+        }
+      }
+      else if(in2 == "<"){
+        if(parseInt(in1)<parseInt(in3)){
+          for (let x = 0; x < dis - 2; x++) {
+        evel(document.getElementById("inp"+tick).value);
+        tick++;
+      }
+        }
+      }
+    i2 = 4;
+  }
     
-    }
   if(name == "var"){
     let var_name = fun.split(">")[1].split(",")[0];
     let val = fun.split(">")[1].split(",")[1];
@@ -156,8 +204,7 @@ function funn(fun,i2) {
     in1 = var_check1(fun);
     in2 = var_check2(fun);
     var_val[var_names.indexOf(in1)] = parseInt(var_val[var_names.indexOf(in1)]) / parseInt(in2);
-  }
-    
+  } 
 }
 
 
@@ -211,7 +258,6 @@ document.onkeydown = function(e){
   if(e.key == "Enter"){
     add();
   }
-  
 
 }
     
@@ -220,6 +266,12 @@ function doc_keyUp(e) {
     if (e.ctrlKey && e.key === 'Shift') {       
         run();
     }
+  else if(e.ctrlKey && e.key == "Backspace"){
+    let list = document.getElementById('list');
+    list.removeChild(list.lastElementChild);
+    let li = list.lastElementChild;
+    li.lastElementChild.focus();
+  }
 }
 document.addEventListener('keyup', doc_keyUp, false);
 

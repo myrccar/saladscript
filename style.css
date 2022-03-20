@@ -23,6 +23,7 @@ img.logo{
 div.header > h1{
   float: left;
   font-size: 4vw;
+  cursor: default;
 }
 
 a.save > button{
@@ -75,13 +76,41 @@ button{
 }
 
 #mainC{
-  
+  background-color: white;
+  display: inline;
+  width: 30vw;
+  height: 30vw;
+}
+button.add_btn{
+  color: black;
+  float: left;
+  margin-right: 50%;
+  width: 20%;
+  background-color: #EDF6F9;
+  border: none;
+  cursor: pointer;
 }
 button.run_btn{
-  
+  float: left;
+  width: 80%;
+  height: 5vw;
+  margin: 9%;
+  font-size: 3vw;
+  background-color: #627b23;
+  border: none;
+}
+ol.list > li > input{
+  width: 80%;
+  height: 5vh;
+  font-size: 4vh;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #EDF6F9;
+  border: none;
+  margin-top: 2%;
 }
 ol.list{
-  
+  font-size: 3.5vh;
+  margin-left: 1%;
 }
 
 div.content{
@@ -93,6 +122,7 @@ div.side_a{
   background-color: #5e8d88;
   height: 100%;
   width: 45%;
+  text-align: center;
 }
 div.side_b{
   float: left;
@@ -100,6 +130,7 @@ div.side_b{
   height: 100%;
   width: 55%;
   overflow-y: scroll;
+  
 }
 
 
