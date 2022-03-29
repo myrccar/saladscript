@@ -12,6 +12,55 @@
 </head>
 <body>
  <div class="header"><img src="img/saildscript_logo.png" alt="saladScript logo"><h1>saladScript docs.</h1></div>
-  <h1>beginer</h1>
+  <h1>beginer tutorial:</h1> 
+  <p>Welcome to saladScript, a programming language for beginners. In this tutorial we will make a first program and learn the basics of saladScript. To start off with, let's cover the saladScript UI(the buttons and stuff). You have the navbar:</p>
+  <img src="img/header.png" alt="image of navbar" style="width: 70vw;">
+  <p>The navbar has the “save” and “load” button also the “help” button. “save” well, saves your project and “load” well, loads a project. That’s all for the navbar now onto the script editor:</p>
+  <img src="img/script.png" alt="image of script editor" style="width: 40vw;">
+  <p>The “script editor” is what you make your scripts in. there are lines that you right code in(will get to the coding part in a bit). To add a line click the “+” button or press <kbd>Enter</kbd>, and <kbd>Ctrl</kbd>+<kbd>Backspace</kbd> to remove the last line. Now onto the output:
+</p>
+  <img src="img/output.png" alt="image of output" style="width: 33vw;">
+  <p>This is where your code’s output is. The “run” button will run your project. You can also press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>. Now onto some CODING(finally). </p>
+  <h2>are first project:</h2>
+  <p>For are first project we will be making a big “X” on the output it will look like this:</p>
+  <img src="img/first.png" alt="image of first project" style="width: 25vw;">
+  <p>To start out with, we need to know how we write code in saladScript (a.k.a. syntax)
+A typical line of code will look like this: <code>nameOfCommand>value1,value2,ect.</code>
+Now that we got that out of the way, let's make the first line.
+The output has 200x200px in it, so if we want to go-to the center of the output we move to “x 100 and y 100” x(left to right) and y(up and down). 
+To start the first line we need to move to the top left corner of the screen. We can use the ‘move’ command and x0,y0 is the top left of the screen so the first line is <code>move>0,0</code> (the first value is x and second value is y).
+Now we need to make are line, how the ‘line’ command works is it will make a line from your current pos(‘move’ command) to the pos you specify. So are second line of code is<code>line>200,200</code> congrats you made your first line it should look like this:
+</p>
+  <img src="img/line.png" alt="image of line on screen" style="width: 20vw;">
+
+  <!--- finsh beginer tut later -->
+
+  <h1>all saladscript command's</h1>
+  <p>this is all of saldScript commands</p>
+  <h2>draw commands</h2>
+  <h3 id="move">"move" command</h3>
+  <p>The “move” command is used to move the start of <a href="#line">lines</a>
+Syntax: <code>move>xpos,ypos</code> 
+</p>
+  <h3 id="line">"line" command</h3>
+  <p>The line command is used to make lines to make a line you first need to use the <a href="#move">move</a> command. Syntax: <code>line>xpos,ypos</code></p>
+  <h3>"cir" command</h3>
+  <p>The “cir” command is used to make circles. Syntax: <code>cir>xpos,ypos,radius</code></p>
+  <h3>"rect" command</h3>
+  <p>The rect command is used to make rectangles & squares. Syntax: <code>rect>xpos,ypos,xwidth,ywidth</code></p>
+  <h3>"text" command</h3>
+  <p>The text command is used to make text. The default font is “Verdana” and as of saladscript 1.0 that is not changeable. Syntax: <code>text>xpos,ypos,fontSize(px)</code>
+</p>
+  <h2>function commands</h2>
+  <h3>"var" command</h3>
+  <p>The var command is used to make and asinine variables. You can use variables by typing “var:varName” into a value. Syntax: <code>var>varName,value</code></p>
+  <h3>"var+" command</h3>
+  <p>The var+ command is used to add a number to a variable. Syntax: <code>var+>varName,value</code></p>
+  <h3>"var-" command</h3>
+  <p>The var- command is used to subtract a number from a variable. Syntax: <code>var->varName,value</code></p>
+  <h3>"var*" command</h3>
+  <p>The var* command is used to multiply a variable by a number. Syntax: <code>var*>varName,value</code></p>
+  <h3>"var/" command</h3>
+  <p>The var/ command is used to divide a variable by a number. Syntax: <code>var/>varName,value</code></p>
 </body>
 </html>

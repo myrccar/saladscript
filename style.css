@@ -80,6 +80,8 @@ button{
   display: inline;
   width: 30vw;
   height: 30vw;
+  position: sticky;
+  top:0;
 }
 button.add_btn{
   color: black;
