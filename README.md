@@ -1,4 +1,4 @@
-# saladScript
+# saladScript BETA
 a simple coding language for beginners/kids   
 made using javascript
 
