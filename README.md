@@ -1,6 +1,6 @@
 # saladScript
 a simple coding language for beginners/kids   
-made useing javascript
+made using javascript
 
 ###### 1. text>saladScript,45,100,20
 
